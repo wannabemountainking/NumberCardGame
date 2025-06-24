@@ -188,6 +188,7 @@ func play(cardsArr: [Int]) -> [String: Int] {
             }
             return person
         }
+        
         let participantsDict = [
             participants[0].priority: participants[0],
             participants[1].priority: participants[1],
@@ -237,14 +238,10 @@ func play(cardsArr: [Int]) -> [String: Int] {
                 partaker.updatePenalty(newValue: partaker.arrayBelongTo.count - 1)
                 cardNumDicts.removeValue(forKey: partaker.arrayBelongTo[0])
                 partaker.arrayBelongTo = []
-                print("베열 제거: \(cardNumDicts)")
-                print("속성값 제거: \(partaker)")
             } else {
                 cardNumDicts[partaker.arrayBelongTo[0]] = partaker.arrayBelongTo
-                print("참가자 카드와 비교 후 cardNumDicts \(cardNumDicts)")
             }
             participants[idx] = partaker
-            print(participants)
         }
         
         
@@ -254,7 +251,6 @@ func play(cardsArr: [Int]) -> [String: Int] {
             participants.forEach { participant in
                 result[participant.name] = participant.penalty
             }
-            print(result)
             return result
         }
     }
